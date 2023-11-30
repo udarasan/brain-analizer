@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="add">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/WavePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/ElectrodeQualityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/ElectrodeQualityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/electrode-quality.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/electrode-quality.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +49,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_directory_selection": "/Users/udarasan/Documents/freelance-projects/neo-ayya/brain-analizer/src/main/java/com/example/brainanalizer",
-    "last_opened_file_path": "/Users/udarasan/Documents/freelance-projects/neo-ayya/brain-analizer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/udarasan/Documents/freelance-projects/neo-ayya/brain-analizer/src/main/java/com/example/brainanalizer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/udarasan/Documents/freelance-projects/neo-ayya/brain-analizer/src/main/resources/com/example/brainanalizer/assests&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.brainanalizer.HelloApplication" />
@@ -94,12 +98,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701252499601</updated>
-      <workItem from="1701252500814" duration="3538000" />
+      <workItem from="1701252500814" duration="3638000" />
+      <workItem from="1701257068712" duration="13268000" />
+      <workItem from="1701322145175" duration="4461000" />
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1701256971813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701256971813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

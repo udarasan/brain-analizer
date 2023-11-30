@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.brainanalizer.DashboardController">
+   <children>
+      <Pane prefHeight="51.0" prefWidth="1430.0" style="-fx-background-color: #ebeced; -fx-border-color: #cccccc;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" prefHeight="36.0" prefWidth="252.0" text="Application Name">
+               <font>
+                  <Font name="PingFang HK Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="13.0" prefHeight="24.0" prefWidth="41.0" text="88%" textFill="#05a410">
+               <font>
+                  <Font name="Avenir Black" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="53.0" prefHeight="745.0" prefWidth="73.0" style="-fx-background-color: #ebeced; -fx-border-color: #cccccc;">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="54.0" layoutX="15.0" layoutY="14.0" onMouseClicked="#wavePageMenuItem" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/linechar-icon-image.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="context" layoutX="299.0" layoutY="53.0" prefHeight="745.0" prefWidth="1132.0" style="-fx-background-color: #fffff; -fx-border-color: #cccccc;" />
+      <Pane layoutX="76.0" layoutY="53.0" prefHeight="745.0" prefWidth="219.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #cccccc;">
+         <children>
+            <TextField layoutX="6.0" layoutY="12.0" prefHeight="28.0" prefWidth="147.0" promptText="Search Port" />
+            <Button layoutX="156.0" layoutY="12.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="57.0" text="Search" />
+            <ListView layoutX="6.0" layoutY="67.0" prefHeight="200.0" prefWidth="207.0" />
+            <Label layoutX="8.0" layoutY="49.0" opacity="0.62" text="Available Ports" />
+         </children></Pane>
+   </children>
+</AnchorPane>
