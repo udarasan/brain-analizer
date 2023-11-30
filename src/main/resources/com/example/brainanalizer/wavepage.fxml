@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -10,45 +11,65 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.brainanalizer.WavePageController">
    <children>
-      <LineChart fx:id="alphaLineChart" layoutX="40.0" prefHeight="143.0" prefWidth="1132.0">
+      <LineChart fx:id="alphaLineChart" layoutX="40.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis side="BOTTOM" tickLabelFill="#cd4343" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
         </yAxis>
+         <styleClass>
+            <String fx:value="chart-series-line-1" />
+            <String fx:value="chart-line-symbol-1" />
+         </styleClass>
       </LineChart>
-      <LineChart fx:id="betaLineChart" layoutX="40.0" layoutY="143.0" prefHeight="143.0" prefWidth="1132.0">
+      <LineChart fx:id="betaLineChart" layoutX="40.0" layoutY="143.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />
          </yAxis>
+         <styleClass>
+            <String fx:value="chart-series-line-2" />
+            <String fx:value="chart-line-symbol-2" />
+         </styleClass>
       </LineChart>
-      <LineChart fx:id="thetaLineChart" layoutX="40.0" layoutY="286.0" prefHeight="143.0" prefWidth="1132.0">
+      <LineChart fx:id="thetaLineChart" layoutX="40.0" layoutY="286.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />
          </yAxis>
+         <styleClass>
+            <String fx:value="chart-series-line-3" />
+            <String fx:value="chart-line-symbol-3" />
+         </styleClass>
       </LineChart>
-      <LineChart fx:id="gammaLineChart" layoutX="40.0" layoutY="429.0" prefHeight="143.0" prefWidth="1132.0">
+      <LineChart fx:id="gammaLineChart" layoutX="40.0" layoutY="429.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />
          </yAxis>
+         <styleClass>
+            <String fx:value="chart-series-line-4" />
+            <String fx:value="chart-line-symbol-4" />
+         </styleClass>
       </LineChart>
-      <LineChart fx:id="deltaLineChart" layoutX="40.0" layoutY="572.0" prefHeight="143.0" prefWidth="1132.0">
+      <LineChart id="chart-series-line-5" fx:id="deltaLineChart" layoutX="40.0" layoutY="572.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
          <yAxis>
             <NumberAxis side="LEFT" />
          </yAxis>
+         <styleClass>
+            <String fx:value="chart-series-line-5" />
+            <String fx:value="chart-line-symbol-5" />
+         </styleClass>
       </LineChart>
       <Label layoutX="6.0" layoutY="22.0" text="ALPHA">
          <font>

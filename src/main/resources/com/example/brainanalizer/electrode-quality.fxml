@@ -11,12 +11,12 @@
    <children>
       <ImageView fitHeight="150.0" fitWidth="106.0" layoutX="202.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assests/left.png" />
+            <Image url="@assests/images/left.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="106.0" layoutX="315.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assests/right.png" />
+            <Image url="@assests/images/right.png" />
          </image>
       </ImageView>
       <Label layoutX="196.0" layoutY="26.0" text="Ear Tip Fit Results">

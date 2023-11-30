@@ -41,16 +41,13 @@ public class WavePageController implements Initializable {
     private XYChart.Series<String, Number> series3=new XYChart.Series<>();
     private XYChart.Series<String, Number> series4=new XYChart.Series<>();
     private XYChart.Series<String, Number> series5=new XYChart.Series<>();
+
+    private static final int MAX_DATA_POINTS = 100;
+    private int dataPointCount = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        series1 = new XYChart.Series<>();
-//        lineChart.getData().add(series1);
-//
-//        // Set up a timeline to generate random data every second
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateChart()));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
-        series1.getData().add(new XYChart.Data<>("1",2));
+
+      /*  series1.getData().add(new XYChart.Data<>("1",2));
         series1.getData().add(new XYChart.Data<>("2",1));
         series1.getData().add(new XYChart.Data<>("3",4));
         series2.getData().add(new XYChart.Data<>("1",1));
@@ -64,27 +61,56 @@ public class WavePageController implements Initializable {
         series4.getData().add(new XYChart.Data<>("3",4));
         series5.getData().add(new XYChart.Data<>("1",1));
         series5.getData().add(new XYChart.Data<>("2",3));
-        series5.getData().add(new XYChart.Data<>("3",4));
+        series5.getData().add(new XYChart.Data<>("3",4));*/
+
+
 
         alphaLineChart.getData().add(series1);
         betaLineChart.getData().add(series2);
         thetaLineChart.getData().add(series3);
         gammaLineChart.getData().add(series4);
         deltaLineChart.getData().add(series5);
-        //exportChartDataToCSV();
+
+        // Set the line color for series1 to RED
+        series1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: red;");
+        // Set the line color for series2 to GREEN
+        series2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: green;");
+        // Set the line color for series3 to BLUE
+        series3.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: blue;");
+        // Set the line color for series4 to ORANGE
+        series4.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: orange;");
+        // Set the line color for series5 to PURPLE
+        series5.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: purple;");
+
+        // Set up a timeline to generate random data every second
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateChart()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
     }
-    /*private void updateChart() {
-        Random random = new Random();
-        int x = series1.getData().size() * 1;  // Assuming you want to add data every 1 units on the x-axis
-        int y = random.nextInt(3) + 1;  // Random y value between 1 and 6
+    private void updateChart() {
+    Random random = new Random();
 
-        series1.getData().add(new XYChart.Data<>(String.valueOf(x), y));
+    // Generate random data
+    double newDataPoint = random.nextDouble() * 100; // Adjust the range as needed
 
-        // Optionally, remove data points to keep the chart from becoming too crowded
-        if (series1.getData().size() > 100) {
-            series1.getData().remove(0);
+    // Add the new data point to each series
+    addDataPoint(series1, newDataPoint);
+    addDataPoint(series2, newDataPoint);
+    addDataPoint(series3, newDataPoint);
+    addDataPoint(series4, newDataPoint);
+    addDataPoint(series5, newDataPoint);
+}
+
+    private void addDataPoint(XYChart.Series<String, Number> series, double value) {
+        // Add a new data point to the series
+        series.getData().add(new XYChart.Data<>(String.valueOf(series.getData().size()), value));
+
+        // Remove the oldest data point if the maximum number of points is reached
+        if (series.getData().size() > MAX_DATA_POINTS) {
+            series.getData().remove(0);
         }
-    }*/
+    }
 
     public void exportToCSV(ActionEvent actionEvent) {
         // Create a FileChooser to let the user choose where to save the CSV file

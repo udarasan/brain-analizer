@@ -1,0 +1,30 @@
+.chart-series-line-1 {
+    -fx-stroke: red;
+    -fx-stroke-width: 0.5; /* Adjust the line thickness */
+}
+.chart-line-symbol {
+    -fx-background-color: #313131; /* Data point color */
+    -fx-background-radius: 5; /* Adjust the corner radius of the data point */
+}
+
+.chart-series-line-2 {
+    -fx-stroke: #fb8a24;
+    -fx-stroke-width: 0.5; /* Adjust the line thickness */
+}
+
+.chart-series-line-3 {
+    -fx-stroke: #dcba16;
+    -fx-stroke-width: 0.5; /* Adjust the line thickness */
+}
+
+
+.chart-series-line-4 {
+    -fx-stroke: #008300;
+    -fx-stroke-width: 0.5; /* Adjust the line thickness */
+}
+
+.chart-series-line-5 {
+    -fx-stroke: #0e71af;
+    -fx-stroke-width: 0.5; /* Adjust the line thickness */
+}
+
