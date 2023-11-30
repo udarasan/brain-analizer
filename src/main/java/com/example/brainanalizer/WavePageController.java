@@ -15,6 +15,7 @@ import javafx.scene.chart.XYChart;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import jssc.SerialPortList;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -88,6 +89,8 @@ public class WavePageController implements Initializable {
         timeline.play();
 
     }
+
+
     private void updateChart() {
     Random random = new Random();
 

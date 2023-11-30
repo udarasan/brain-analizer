@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="basics">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/css/styles.css" afterDir="false" />
+    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="changes ui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/BluetoothManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/WavePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/WavePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/left.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/images/left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/linechar-icon-image.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/images/linechar-icon-image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/images/right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/electrode-quality.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/electrode-quality.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,6 +44,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2YqUF7NWdcmLZMfyrnOAlI4APVT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,7 +106,7 @@
       <updated>1701252499601</updated>
       <workItem from="1701252500814" duration="3638000" />
       <workItem from="1701257068712" duration="13268000" />
-      <workItem from="1701322145175" duration="8793000" />
+      <workItem from="1701322145175" duration="11490000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1701256971813</created>
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701327437551</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changes ui">
+      <created>1701331702040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701331702040</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +138,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
     <MESSAGE value="basics" />
-    <option name="LAST_COMMIT_MESSAGE" value="basics" />
+    <MESSAGE value="changes ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes ui" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
