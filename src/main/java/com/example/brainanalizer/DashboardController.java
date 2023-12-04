@@ -1,5 +1,6 @@
 package com.example.brainanalizer;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,10 +36,17 @@ public class DashboardController implements Initializable {
     private static final int FOOTER = 0x55AA;
     ObservableList<String> devices = FXCollections.observableArrayList();
     private void setUi(String location) throws IOException {
-        context.getChildren().clear();
-        context.getChildren().add(FXMLLoader.
-                load(Objects.requireNonNull(this.getClass().
-                        getResource("/com/example/brainanalizer/" + location + ".fxml"))));
+        System.out.println("SetUI");
+        Platform.runLater(() -> {
+            try {
+                context.getChildren().clear();
+                context.getChildren().add(FXMLLoader.
+                        load(Objects.requireNonNull(this.getClass().
+                                getResource("/com/example/brainanalizer/" + location + ".fxml"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
     public void wavePageMenuItem(MouseEvent mouseEvent) throws IOException {
         setUi("wavepage");
@@ -67,10 +75,6 @@ public class DashboardController implements Initializable {
         dropDownMenu.setItems(devices);
     }
 
-
-    public void searchPort(ActionEvent actionEvent) {
-      connect(portID.getText());
-    }
 
     public void connect(String portName) {
         serialPort = new SerialPort(portName);
@@ -112,6 +116,7 @@ public class DashboardController implements Initializable {
                         processDataMessage(data);
                         break;
                     default:
+                        System.out.println(header);
                         System.out.println("Unknown message type");
                 }
             }
@@ -136,6 +141,7 @@ public class DashboardController implements Initializable {
     private void processDataMessage(byte[] data) {
         // Process different types of data messages
         int dataType = data[3] & 0xFF;
+        System.out.println(dataType);
         switch (dataType) {
             case 0x01: // Raw EEG Data
                 processRawEEGData(Arrays.copyOfRange(data, 4, data.length - 2));
@@ -157,21 +163,33 @@ public class DashboardController implements Initializable {
     private void processRawEEGData(byte[] data) {
         // Implement logic to process Raw EEG Data
         System.out.println("Raw EEG Data: " + bytesToHex(data));
+        for (byte b : data) {
+            System.out.println("Byte: " + (b & 0xFF));
+        }
     }
 
     private void processFFTData(byte[] data) {
         // Implement logic to process FFT Analysis Data
         System.out.println("FFT Data: " + bytesToHex(data));
+        for (byte b : data) {
+            System.out.println("Byte: " + (b & 0xFF));
+        }
     }
 
     private void processFrequencyBandData(byte[] data) {
         // Implement logic to process Frequency Band Data
         System.out.println("Frequency Band Data: " + bytesToHex(data));
+        for (byte b : data) {
+            System.out.println("Byte: " + (b & 0xFF));
+        }
     }
 
     private void processSignalQualityData(byte[] data) {
         // Implement logic to process Signal Quality Data
         System.out.println("Signal Quality Data: " + bytesToHex(data));
+        for (byte b : data) {
+            System.out.println("Byte: " + (b & 0xFF));
+        }
     }
 
     private static String bytesToHex(byte[] bytes) {
@@ -206,7 +224,7 @@ public class DashboardController implements Initializable {
     }
 
     public void OnMouseClick(MouseEvent mouseEvent) {
-        String selectedDevice = panelId.getSelectionModel().getSelectedItem().toString();
+        String selectedDevice = (String) panelId.getSelectionModel().getSelectedItem();
         if (selectedDevice != null) {
             System.out.println("Selected Bluetooth Device: " + selectedDevice);
             portID.setText(selectedDevice);
@@ -216,12 +234,15 @@ public class DashboardController implements Initializable {
     }
 
     public void selectedOnAction(ActionEvent actionEvent) {
-        System.out.println(dropDownMenu.getValue());
+        closeConnection();
+        if (dropDownMenu.getValue() != null) {
+            System.out.println(dropDownMenu.getValue());
 
-        //select the port
-        String selectedPort=  dropDownMenu.getValue().toString();
-        //connect to the port
-        connect(selectedPort);
+            // Select the port
+            String selectedPort = dropDownMenu.getValue().toString();
+            // Connect to the port
+            connect(selectedPort);
+        }
 
 
 

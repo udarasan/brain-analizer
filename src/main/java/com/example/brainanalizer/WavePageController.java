@@ -92,17 +92,8 @@ public class WavePageController implements Initializable {
 
 
     private void updateChart() {
-    Random random = new Random();
+//
 
-    // Generate random data
-    double newDataPoint = random.nextDouble() * 100; // Adjust the range as needed
-
-    // Add the new data point to each series
-    addDataPoint(series1, newDataPoint);
-    addDataPoint(series2, newDataPoint);
-    addDataPoint(series3, newDataPoint);
-    addDataPoint(series4, newDataPoint);
-    addDataPoint(series5, newDataPoint);
 }
 
     private void addDataPoint(XYChart.Series<String, Number> series, double value) {
