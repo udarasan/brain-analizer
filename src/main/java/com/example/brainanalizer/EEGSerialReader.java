@@ -1,21 +1,19 @@
 package com.example.brainanalizer;
 
-/**
- * @TimeStamp 2023-12-04 21:30
- * @ProjectDetails brain-analizer
- */
-import jssc.SerialPort;
-import jssc.SerialPortException;
-import jssc.SerialPortEventListener;
-import jssc.SerialPortEvent;
+import jssc.*;
+
 import java.util.Arrays;
 
-public class EEGSerialReader {
 
+public class EEGSerialReader {
     private SerialPort serialPort;
     private static final int HEADER = 0xAA55;
     private static final int FOOTER = 0x55AA;
+    private static final int STATE_IDLE = 0;
+    private static final int STATE_HEADER_FOUND = 1;
+    private static final int STATE_DATA_FOUND = 2;
 
+    private static int currentState = STATE_IDLE;
     public void start(String portName) {
         serialPort = new SerialPort(portName);
         try {
@@ -31,7 +29,7 @@ public class EEGSerialReader {
                     if (event.isRXCHAR() && event.getEventValue() > 0) {
                         try {
                             byte[] receivedData = serialPort.readBytes();
-                            processData(receivedData);
+                            processReceivedData(receivedData);
                         } catch (SerialPortException ex) {
                             System.out.println("Error in receiving data: " + ex);
                         }
@@ -43,7 +41,65 @@ public class EEGSerialReader {
             System.out.println("There are an error opening port: " + ex);
         }
     }
+    private static void processReceivedData(byte[] buffer) {
+        // Print the raw byte values in hexadecimal
+        System.out.print("Received Data: ");
+        for (byte b : buffer) {
+            System.out.print(String.format("%02X ", b));
+        }
+        System.out.println();
 
+        for (byte b : buffer) {
+            switch (currentState) {
+                case STATE_IDLE:
+                    if (b == (byte) 0xAA) {
+                        currentState = STATE_HEADER_FOUND;
+                    }
+                    break;
+                case STATE_HEADER_FOUND:
+                    if (b == (byte) 0x55) {
+                        currentState = STATE_DATA_FOUND;
+                    } else {
+                        currentState = STATE_IDLE;
+                    }
+                    break;
+                case STATE_DATA_FOUND:
+                    // Process the data
+                    if (buffer.length >= 3) {
+                        byte dataType = buffer[3];
+                        byte value = buffer[4];
+
+                        switch (dataType) {
+                            case 0x01:
+                                // RAW_EEG_DATA
+                                System.out.println("RAW EEG Data: " + value);
+                                break;
+                            case 0x02:
+                                // FFT_DATA
+                                System.out.println("FFT Data: " + value);
+                                break;
+                            case 0x03:
+                                // FREQUENCY_BAND_DATA
+                                System.out.println("Frequency Band Data: " + value);
+                                break;
+                            case 0x04:
+                                // SIGNAL_QUALITY_DATA
+                                System.out.println("Signal Quality Data: " + value);
+                                break;
+                            default:
+                                // Unknown data type
+                                System.out.println("Unknown Data Type");
+                        }
+
+                        currentState = STATE_IDLE;
+                    }
+                    break;
+                default:
+                    currentState = STATE_IDLE;
+                    break;
+            }
+        }
+    }
     private void processData(byte[] data) {
         // Implement data processing logic according to the protocol
         // Extract header, message type, payload, etc.
@@ -144,6 +200,6 @@ public class EEGSerialReader {
 
     public static void main(String[] args) {
         EEGSerialReader reader = new EEGSerialReader();
-        reader.start("COM3"); // Replace with your actual serial port
+        reader.start("COM4"); // Replace with your actual serial port
     }
 }
