@@ -32,6 +32,10 @@ public class DashboardController implements Initializable {
     public ComboBox dropDownMenu;
     @FXML
     public Label txtSignalQualityId;
+    @FXML
+    public Label txtLeftAriPod;
+    @FXML
+    public Label txtRightAriPod;
     private SerialPort serialPort;
     private static final int HEADER = 0xAA55;
     private static final int FOOTER = 0x55AA;
@@ -55,7 +59,20 @@ public class DashboardController implements Initializable {
     public void setSignalQualityOnTopBar(int value){
         // Ensure that txtSignalQualityId is not null before using it
         if (txtSignalQualityId != null) {
-            Platform.runLater(() -> txtSignalQualityId.setText(String.valueOf(value)+"%"));
+            Platform.runLater(() -> {
+                txtSignalQualityId.setText(String.valueOf(value)+"%");
+                if (value > 0 && value < 50){
+                    txtLeftAriPod.setText("Adjust or try a different Ear Tip");
+                    txtRightAriPod.setText("Adjust or try a different Ear Tip");
+                    txtLeftAriPod.setStyle("-fx-text-fill: red;");
+                    txtRightAriPod.setStyle("-fx-text-fill: red;");
+                }else {
+                    txtLeftAriPod.setText("Good Seal");
+                    txtRightAriPod.setText("Good Seal");
+                    txtLeftAriPod.setStyle("-fx-text-fill: green;");
+                    txtRightAriPod.setStyle("-fx-text-fill: green;");
+                }
+            });
         } else {
             System.out.println("txtSignalQualityId is null");
         }
@@ -99,6 +116,8 @@ public class DashboardController implements Initializable {
             System.out.println("No device selected.");
         }
     }
+
+
 
     public void selectedOnAction(ActionEvent actionEvent) {
         if (dropDownMenu.getValue() != null) {

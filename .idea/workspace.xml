@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="find arduino serial reader">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/utill/ArduinoSerialReader.java" afterDir="false" />
+    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="new update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/ArduinoMessageReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/unused/ArduinoMessageReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/ArduinoSerialReader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/DashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/EEGSerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/unused/EEGSerialReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/SerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/unused/SerialReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/WavePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/WavePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/samplecode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/assests/samplecode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +162,7 @@
       <workItem from="1701336900146" duration="6574000" />
       <workItem from="1701746347768" duration="57000" />
       <workItem from="1701748154377" duration="32196000" />
-      <workItem from="1701966439315" duration="3262000" />
+      <workItem from="1701966439315" duration="5081000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1701256971813</created>
@@ -210,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701781701406</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new update">
+      <created>1701970047767</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701970047767</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +218,8 @@
     <MESSAGE value="changes ui" />
     <MESSAGE value="changes code" />
     <MESSAGE value="find arduino serial reader" />
-    <option name="LAST_COMMIT_MESSAGE" value="find arduino serial reader" />
+    <MESSAGE value="new update" />
+    <option name="LAST_COMMIT_MESSAGE" value="new update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
