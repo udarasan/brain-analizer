@@ -117,9 +117,18 @@ public class DashboardController implements Initializable {
         }
     }
 
-
-
+    public void closeConnection() {
+        if (serialPort != null && serialPort.isOpened()) {
+            try {
+                serialPort.removeEventListener();
+                serialPort.closePort();
+            } catch (SerialPortException ex) {
+                System.out.println("Error closing port: " + ex);
+            }
+        }
+    }
     public void selectedOnAction(ActionEvent actionEvent) {
+        closeConnection();
         if (dropDownMenu.getValue() != null) {
             System.out.println(dropDownMenu.getValue());
 
