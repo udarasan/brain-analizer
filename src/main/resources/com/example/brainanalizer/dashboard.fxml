@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.brainanalizer.DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.brainanalizer.controller.DashboardController">
    <children>
       <Pane prefHeight="51.0" prefWidth="1430.0" style="-fx-background-color: #ebeced; -fx-border-color: #cccccc;">
          <children>
-            <Label layoutX="259.0" layoutY="14.0" prefHeight="24.0" prefWidth="41.0" text="88%" textFill="#05a410">
+            <Label fx:id="txtSignalQualityId" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1363.0" layoutY="13.0" prefHeight="25.0" prefWidth="53.0" text="0%" textAlignment="RIGHT" textFill="#05a410">
                <font>
                   <Font name="Avenir Black" size="16.0" />
                </font>

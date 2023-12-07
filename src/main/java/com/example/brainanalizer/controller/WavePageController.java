@@ -1,4 +1,4 @@
-package com.example.brainanalizer;
+package com.example.brainanalizer.controller;
 
 /**
  * @TimeStamp 2023-11-29 19:43
