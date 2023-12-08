@@ -8,6 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -15,6 +18,8 @@ import jssc.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -36,12 +41,21 @@ public class DashboardController implements Initializable {
     public Label txtLeftAriPod;
     @FXML
     public Label txtRightAriPod;
-    private SerialPort serialPort;
-    private static final int HEADER = 0xAA55;
-    private static final int FOOTER = 0x55AA;
+
+    @FXML
+    private LineChart<String, Number> alphaLineChart;
+    @FXML
+    private LineChart<String, Number> betaLineChart;
+    @FXML
+    private LineChart<String, Number> thetaLineChart;
+    @FXML
+    private LineChart<String, Number> gammaLineChart;
+    @FXML
+    private LineChart<String, Number> deltaLineChart;
+    private static final int MAX_DATA_POINTS = 50;
+
     ObservableList<String> devices = FXCollections.observableArrayList();
     private void setUi(String location)  {
-        System.out.println("SetUI");
         Platform.runLater(() -> {
             try {
                 context.getChildren().clear();
@@ -52,9 +66,6 @@ public class DashboardController implements Initializable {
                 e.printStackTrace();
             }
         });
-    }
-    public void wavePageMenuItem(MouseEvent mouseEvent) throws IOException {
-        setUi("wavepage");
     }
     public void setSignalQualityOnTopBar(int value){
         // Ensure that txtSignalQualityId is not null before using it
@@ -79,10 +90,11 @@ public class DashboardController implements Initializable {
 
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setUi("wavepage");
         loadAllPorts();
+        drawStaticAlphaChart();
     }
     public void loadAllPorts(){
         devices.clear();
@@ -113,18 +125,7 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void closeConnection() {
-        if (serialPort != null && serialPort.isOpened()) {
-            try {
-                serialPort.removeEventListener();
-                serialPort.closePort();
-            } catch (SerialPortException ex) {
-                System.out.println("Error closing port: " + ex);
-            }
-        }
-    }
     public void selectedOnAction(ActionEvent actionEvent) {
-        closeConnection();
         if (dropDownMenu.getValue() != null) {
             System.out.println(dropDownMenu.getValue());
 
@@ -139,5 +140,36 @@ public class DashboardController implements Initializable {
                 arduinoSerialReader.connection(selectedPort);
             }).start();
         }
+    }
+
+    public void exportToCSV(ActionEvent actionEvent) {
+    }
+    private void drawStaticAlphaChart() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Alpha Values");
+        alphaLineChart.getData().add(series);
+
+    }
+
+    // New method to update the alpha chart
+    public void updateAlphaChart(int rawEegValue) {
+        Platform.runLater(() -> {
+            // Use LocalTime to get a human-readable time label
+            LocalTime currentTime = LocalTime.now();
+
+            // Format the time label to a more readable format (HH:mm:ss)
+            String timeLabel = currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+            // Get the series from the chart
+            XYChart.Series<String, Number> series = alphaLineChart.getData().get(0);
+
+            // Add a new data point to the series
+            series.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+
+            // Optional: Limit the number of data points to prevent the chart from becoming too crowded
+            if (series.getData().size() > MAX_DATA_POINTS) {
+                series.getData().remove(0);
+            }
+        });
     }
 }

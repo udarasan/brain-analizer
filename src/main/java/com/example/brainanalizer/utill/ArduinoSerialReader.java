@@ -2,7 +2,6 @@ package com.example.brainanalizer.utill;
 
 import com.example.brainanalizer.controller.DashboardController;
 import com.fazecast.jSerialComm.SerialPort;
-import com.fazecast.jSerialComm.SerialPortInvalidPortException;
 
 public class ArduinoSerialReader {
     private static DashboardController dashboardController;
@@ -65,6 +64,9 @@ private static void processReceivedData(byte[] buffer, int bytesRead) {
                     case 0x01: // RAW_EEG_DATA
                         int rawEegValue = buffer[5] & 0xFF; // Convert to unsigned byte
                         System.out.println("Received RAW_EEG_DATA: " + rawEegValue);
+                        if (dashboardController != null) {
+                            dashboardController.updateAlphaChart(rawEegValue);
+                        }
                     case 0x02: // FFT_DATA
                         int fftValue = buffer[14] & 0xFF;
                         System.out.println("Received FFT_DATA: " + fftValue);

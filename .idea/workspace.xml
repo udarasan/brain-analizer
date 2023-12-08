@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="close connection">
+    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="exception issue fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/WavePageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/utill/ArduinoSerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/utill/ArduinoSerialReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +165,7 @@
       <workItem from="1701746347768" duration="57000" />
       <workItem from="1701748154377" duration="32196000" />
       <workItem from="1701966439315" duration="5940000" />
+      <workItem from="1702041193474" duration="4974000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1701256971813</created>
@@ -217,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701971871192</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="exception issue fixed">
+      <created>1702041645057</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041645057</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +245,8 @@
     <MESSAGE value="new update" />
     <MESSAGE value="change ui behaviours" />
     <MESSAGE value="close connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="close connection" />
+    <MESSAGE value="exception issue fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="exception issue fixed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -20,7 +25,103 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="context" layoutX="221.0" layoutY="53.0" prefHeight="745.0" prefWidth="1210.0" style="-fx-background-color: #fffff; -fx-border-color: #cccccc;" />
+      <Pane fx:id="context" layoutX="221.0" layoutY="53.0" prefHeight="745.0" prefWidth="1210.0" style="-fx-background-color: #fffff; -fx-border-color: #cccccc;">
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <LineChart fx:id="alphaLineChart" layoutX="40.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" tickLabelFill="#cd4343" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <styleClass>
+                        <String fx:value="chart-series-line-1" />
+                        <String fx:value="chart-line-symbol-1" />
+                     </styleClass>
+                  </LineChart>
+                  <LineChart fx:id="betaLineChart" layoutX="40.0" layoutY="143.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <styleClass>
+                        <String fx:value="chart-series-line-2" />
+                        <String fx:value="chart-line-symbol-2" />
+                     </styleClass>
+                  </LineChart>
+                  <LineChart fx:id="thetaLineChart" layoutX="40.0" layoutY="286.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <styleClass>
+                        <String fx:value="chart-series-line-3" />
+                        <String fx:value="chart-line-symbol-3" />
+                     </styleClass>
+                  </LineChart>
+                  <LineChart fx:id="gammaLineChart" layoutX="40.0" layoutY="429.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <styleClass>
+                        <String fx:value="chart-series-line-4" />
+                        <String fx:value="chart-line-symbol-4" />
+                     </styleClass>
+                  </LineChart>
+                  <LineChart id="chart-series-line-5" fx:id="deltaLineChart" layoutX="40.0" layoutY="572.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                     <styleClass>
+                        <String fx:value="chart-series-line-5" />
+                        <String fx:value="chart-line-symbol-5" />
+                     </styleClass>
+                  </LineChart>
+                  <Label layoutX="6.0" layoutY="22.0" text="ALPHA">
+                     <font>
+                        <Font name="Charter Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="159.0" text="BETA">
+                     <font>
+                        <Font name="Charter Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="299.0" text="THETA">
+                     <font>
+                        <Font name="Charter Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="436.0" text="GAMMA">
+                     <font>
+                        <Font name="Charter Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="6.0" layoutY="571.0" text="DELTA">
+                     <font>
+                        <Font name="Charter Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="84.0" layoutY="697.0" mnemonicParsing="false" onAction="#exportToCSV" prefHeight="23.0" prefWidth="103.0" text="Export to CSV">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></Pane>
       <Pane layoutY="53.0" prefHeight="745.0" prefWidth="219.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #cccccc;">
          <children>
             <ListView fx:id="panelId" layoutX="6.0" layoutY="67.0" onEditStart="#OnEdit" onMouseClicked="#OnMouseClick" prefHeight="200.0" prefWidth="207.0" />
