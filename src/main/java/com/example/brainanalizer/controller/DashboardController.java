@@ -40,7 +40,7 @@ public class DashboardController implements Initializable {
     private static final int HEADER = 0xAA55;
     private static final int FOOTER = 0x55AA;
     ObservableList<String> devices = FXCollections.observableArrayList();
-    private void setUi(String location) throws IOException {
+    private void setUi(String location)  {
         System.out.println("SetUI");
         Platform.runLater(() -> {
             try {
@@ -81,12 +81,8 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            setUi("wavepage");
-            loadAllPorts();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        setUi("wavepage");
+        loadAllPorts();
     }
     public void loadAllPorts(){
         devices.clear();
