@@ -7,7 +7,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,132 +29,142 @@
       </Pane>
       <Pane fx:id="context" layoutX="221.0" layoutY="53.0" prefHeight="745.0" prefWidth="1210.0" style="-fx-background-color: #fffff; -fx-border-color: #cccccc;">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="600.0">
-               <children>
-                  <LineChart fx:id="alphaLineChart" layoutX="40.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" tickLabelFill="#cd4343" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                     <styleClass>
-                        <String fx:value="chart-series-line-1" />
-                        <String fx:value="chart-line-symbol-1" />
-                     </styleClass>
-                  </LineChart>
-                  <LineChart fx:id="betaLineChart" layoutX="40.0" layoutY="143.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                     <styleClass>
-                        <String fx:value="chart-series-line-2" />
-                        <String fx:value="chart-line-symbol-2" />
-                     </styleClass>
-                  </LineChart>
-                  <LineChart fx:id="thetaLineChart" layoutX="40.0" layoutY="286.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                     <styleClass>
-                        <String fx:value="chart-series-line-3" />
-                        <String fx:value="chart-line-symbol-3" />
-                     </styleClass>
-                  </LineChart>
-                  <LineChart fx:id="gammaLineChart" layoutX="40.0" layoutY="429.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                     <styleClass>
-                        <String fx:value="chart-series-line-4" />
-                        <String fx:value="chart-line-symbol-4" />
-                     </styleClass>
-                  </LineChart>
-                  <LineChart id="chart-series-line-5" fx:id="deltaLineChart" layoutX="40.0" layoutY="572.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                     <styleClass>
-                        <String fx:value="chart-series-line-5" />
-                        <String fx:value="chart-line-symbol-5" />
-                     </styleClass>
-                  </LineChart>
-                  <Label layoutX="6.0" layoutY="22.0" text="ALPHA">
-                     <font>
-                        <Font name="Charter Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="159.0" text="BETA">
-                     <font>
-                        <Font name="Charter Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="299.0" text="THETA">
-                     <font>
-                        <Font name="Charter Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="436.0" text="GAMMA">
-                     <font>
-                        <Font name="Charter Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="571.0" text="DELTA">
-                     <font>
-                        <Font name="Charter Bold" size="10.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="84.0" layoutY="697.0" mnemonicParsing="false" onAction="#exportToCSV" prefHeight="23.0" prefWidth="103.0" text="Export to CSV">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-         </children></Pane>
+            <ScrollPane prefHeight="747.0" prefWidth="1210.0">
+               <content>
+                  <AnchorPane fx:id="content" prefHeight="1064.0" prefWidth="1172.0">
+                     <children>
+                        <LineChart fx:id="alphaLineChart" layoutX="40.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" tickLabelFill="#cd4343" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                           <styleClass>
+                              <String fx:value="chart-series-line-1" />
+                              <String fx:value="chart-line-symbol-1" />
+                           </styleClass>
+                        </LineChart>
+                        <LineChart fx:id="betaLineChart" layoutX="40.0" layoutY="143.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                           <styleClass>
+                              <String fx:value="chart-series-line-2" />
+                              <String fx:value="chart-line-symbol-2" />
+                           </styleClass>
+                        </LineChart>
+                        <LineChart fx:id="thetaLineChart" layoutX="40.0" layoutY="286.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                           <styleClass>
+                              <String fx:value="chart-series-line-3" />
+                              <String fx:value="chart-line-symbol-3" />
+                           </styleClass>
+                        </LineChart>
+                        <LineChart fx:id="gammaLineChart" layoutX="40.0" layoutY="429.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                           <styleClass>
+                              <String fx:value="chart-series-line-4" />
+                              <String fx:value="chart-line-symbol-4" />
+                           </styleClass>
+                        </LineChart>
+                        <LineChart id="chart-series-line-5" fx:id="deltaLineChart" layoutX="40.0" layoutY="572.0" prefHeight="143.0" prefWidth="1132.0" stylesheets="@assests/css/styles.css">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                           <styleClass>
+                              <String fx:value="chart-series-line-5" />
+                              <String fx:value="chart-line-symbol-5" />
+                           </styleClass>
+                        </LineChart>
+                        <Label layoutX="6.0" layoutY="22.0" text="ALPHA">
+                           <font>
+                              <Font name="Charter Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="159.0" text="BETA">
+                           <font>
+                              <Font name="Charter Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="299.0" text="THETA">
+                           <font>
+                              <Font name="Charter Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="436.0" text="GAMMA">
+                           <font>
+                              <Font name="Charter Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="571.0" text="DELTA">
+                           <font>
+                              <Font name="Charter Bold" size="10.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="76.0" layoutY="996.0" mnemonicParsing="false" onAction="#exportToCSV" prefHeight="26.0" prefWidth="132.0" text="Export to CSV">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="rawDataTable" layoutX="76.0" layoutY="779.0" prefHeight="200.0" prefWidth="492.0">
+                          <columns>
+                            <TableColumn fx:id="colTimeStamp" prefWidth="139.1298828125" text="Time Stamp" />
+                            <TableColumn fx:id="colEEGData" prefWidth="173.88369750976562" text="EEG Data" />
+                              <TableColumn fx:id="colFTTData" prefWidth="173.88369750976562" text="FTT Data" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
       <Pane layoutY="53.0" prefHeight="745.0" prefWidth="219.0" style="-fx-background-color: #ecf0f1; -fx-border-color: #cccccc;">
          <children>
-            <ListView fx:id="panelId" layoutX="6.0" layoutY="67.0" onEditStart="#OnEdit" onMouseClicked="#OnMouseClick" prefHeight="200.0" prefWidth="207.0" />
-            <Label layoutX="8.0" layoutY="49.0" opacity="0.62" text="Available Ports" />
             <ComboBox fx:id="dropDownMenu" layoutX="5.0" layoutY="19.0" onAction="#selectedOnAction" prefHeight="26.0" prefWidth="207.0" promptText="Select Port" />
             <ImageView fitHeight="40.0" fitWidth="189.0" layoutX="2.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/PNG-01.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="71.0" layoutX="33.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="71.0" layoutX="33.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/left.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="71.0" layoutX="115.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="71.0" layoutX="115.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/right.png" />
                </image>
             </ImageView>
-            <Label layoutX="49.0" layoutY="285.0" text="Ear Tip Fit Results">
+            <Label layoutX="49.0" layoutY="79.0" text="Ear Tip Fit Results">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="txtLeftAriPod" alignment="CENTER" layoutX="14.0" layoutY="440.0" prefHeight="40.0" prefWidth="80.0" text="loading.." textAlignment="CENTER" wrapText="true">
+            <Label fx:id="txtLeftAriPod" alignment="CENTER" layoutX="14.0" layoutY="234.0" prefHeight="40.0" prefWidth="80.0" text="loading.." textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label fx:id="txtRightAriPod" alignment="CENTER" layoutX="124.0" layoutY="440.0" prefHeight="40.0" prefWidth="80.0" text="loading.." textAlignment="CENTER" wrapText="true">
+            <Label fx:id="txtRightAriPod" alignment="CENTER" layoutX="124.0" layoutY="234.0" prefHeight="40.0" prefWidth="80.0" text="loading.." textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="11.0" />
                </font>

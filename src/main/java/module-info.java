@@ -13,4 +13,6 @@ module com.example.brainanalizer {
     opens com.example.brainanalizer.utill to javafx.fxml;
     exports com.example.brainanalizer.unused;
     opens com.example.brainanalizer.unused to javafx.fxml;
+    exports com.example.brainanalizer.model;
+    opens com.example.brainanalizer.model to javafx.fxml;
 }

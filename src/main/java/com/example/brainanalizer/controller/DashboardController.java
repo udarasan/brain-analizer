@@ -1,5 +1,6 @@
 package com.example.brainanalizer.controller;
 
+import com.example.brainanalizer.model.TableData;
 import com.example.brainanalizer.utill.ArduinoSerialReader;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -12,10 +13,15 @@ import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import jssc.*;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
@@ -31,7 +37,6 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     public Pane context;
-    public ListView panelId;
     public TextField portID;
     public TextArea messageArea;
     public ComboBox dropDownMenu;
@@ -41,6 +46,13 @@ public class DashboardController implements Initializable {
     public Label txtLeftAriPod;
     @FXML
     public Label txtRightAriPod;
+    public TableView<TableData> rawDataTable;
+    @FXML
+    public TableColumn<TableData, String> colTimeStamp;
+    @FXML
+    public TableColumn<TableData, Integer> colEEGData;
+    @FXML
+    public TableColumn<TableData, Double> colFTTData;
 
     @FXML
     private LineChart<String, Number> alphaLineChart;
@@ -55,6 +67,8 @@ public class DashboardController implements Initializable {
     private static final int MAX_DATA_POINTS = 50;
 
     ObservableList<String> devices = FXCollections.observableArrayList();
+    ObservableList<TableData> tableDataList = FXCollections.observableArrayList();
+
     private void setUi(String location)  {
         Platform.runLater(() -> {
             try {
@@ -95,6 +109,12 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllPorts();
         drawStaticAlphaChart();
+        initializeTable();
+    }
+    private void initializeTable() {
+        colTimeStamp.setCellValueFactory(new PropertyValueFactory<>("timeStamp"));
+        colEEGData.setCellValueFactory(new PropertyValueFactory<>("eegData"));
+        colFTTData.setCellValueFactory(new PropertyValueFactory<>("fttData"));
     }
     public void loadAllPorts(){
         devices.clear();
@@ -106,7 +126,6 @@ public class DashboardController implements Initializable {
             System.out.println(portName);
             devices.add(portName);
         }
-        panelId.setItems(devices);
         dropDownMenu.setItems(devices);
     }
 
@@ -115,15 +134,7 @@ public class DashboardController implements Initializable {
 
     }
 
-    public void OnMouseClick(MouseEvent mouseEvent) {
-        String selectedDevice = (String) panelId.getSelectionModel().getSelectedItem();
-        if (selectedDevice != null) {
-            System.out.println("Selected Bluetooth Device: " + selectedDevice);
-            portID.setText(selectedDevice);
-        } else {
-            System.out.println("No device selected.");
-        }
-    }
+
 
     public void selectedOnAction(ActionEvent actionEvent) {
         if (dropDownMenu.getValue() != null) {
@@ -143,6 +154,41 @@ public class DashboardController implements Initializable {
     }
 
     public void exportToCSV(ActionEvent actionEvent) {
+        // Prompt user to choose a file location
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV File");
+
+        // Set extension filter to only allow CSV files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show save file dialog
+        Window window = context.getScene().getWindow();
+        File file = fileChooser.showSaveDialog(window);
+
+        if (file != null) {
+            saveTableDataToCSV(file);
+        }
+    }
+    private void saveTableDataToCSV(File file) {
+        try (FileWriter writer = new FileWriter(file)) {
+            // Write CSV header
+            writer.append("Time Stamp, EEG Data, FTT Data\n");
+
+            // Write data to CSV
+            ObservableList<TableData> data = rawDataTable.getItems();
+            for (TableData tableData : data) {
+                writer.append(tableData.getTimeStamp()).append(",");
+                writer.append(String.valueOf(tableData.getEegData())).append(",");
+                writer.append(String.valueOf(tableData.getFttData())).append("\n");
+            }
+
+            System.out.println("CSV file saved successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
+            System.err.println("Error saving CSV file.");
+        }
     }
     private void drawStaticAlphaChart() {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
@@ -161,14 +207,27 @@ public class DashboardController implements Initializable {
             String timeLabel = currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
             // Get the series from the chart
-            XYChart.Series<String, Number> series = alphaLineChart.getData().get(0);
+            XYChart.Series<String, Number> series1 = alphaLineChart.getData().get(0);
+            //XYChart.Series<String, Number> series2 = deltaLineChart.getData().get(0);
+            //XYChart.Series<String, Number> series3 = gammaLineChart.getData().get(0);
+            //XYChart.Series<String, Number> series4 = betaLineChart.getData().get(0);
+            //XYChart.Series<String, Number> series5 = thetaLineChart.getData().get(0);
 
             // Add a new data point to the series
-            series.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            series1.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            //series2.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            //series3.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            //series4.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            //series5.getData().add(new XYChart.Data<>(timeLabel, rawEegValue));
+            // Add data to the table
+            TableData tableData = new TableData(timeLabel, rawEegValue, 5);
+            tableDataList.add(tableData);
+            rawDataTable.setItems(tableDataList);
+
 
             // Optional: Limit the number of data points to prevent the chart from becoming too crowded
-            if (series.getData().size() > MAX_DATA_POINTS) {
-                series.getData().remove(0);
+            if (series1.getData().size() > MAX_DATA_POINTS) {
+                series1.getData().remove(0);
             }
         });
     }

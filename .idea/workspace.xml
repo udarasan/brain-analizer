@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="exception issue fixed">
+    <list default="true" id="4f27a999-3b64-44cc-b589-3c2335e3297a" name="Changes" comment="major version">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/model/TableData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/controller/WavePageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/utill/ArduinoSerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/brainanalizer/utill/ArduinoSerialReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/brainanalizer/wavepage.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +164,9 @@
       <workItem from="1701746347768" duration="57000" />
       <workItem from="1701748154377" duration="32196000" />
       <workItem from="1701966439315" duration="5940000" />
-      <workItem from="1702041193474" duration="4974000" />
+      <workItem from="1702041193474" duration="5826000" />
+      <workItem from="1702091337124" duration="340000" />
+      <workItem from="1702187861281" duration="4217000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1701256971813</created>
@@ -230,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702041645057</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="major version">
+      <created>1702053791737</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702053791737</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +254,8 @@
     <MESSAGE value="change ui behaviours" />
     <MESSAGE value="close connection" />
     <MESSAGE value="exception issue fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="exception issue fixed" />
+    <MESSAGE value="major version" />
+    <option name="LAST_COMMIT_MESSAGE" value="major version" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
